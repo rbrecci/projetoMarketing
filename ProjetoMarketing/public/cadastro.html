@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadastro — DataSocial</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="page-sub">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a href="index.html" class="brand">DataSocial</a>
+      <nav class="topbar-nav">
+        <a href="index.html">Início</a>
+        <a href="dashboard.html">Dashboard</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container section">
+    <h1>Cadastro de temas e sites</h1>
+    <p class="muted">Gerencie temas de pesquisa e URLs para coleta automática.</p>
+
+    <div class="grid-2">
+      <section class="card">
+        <h2>Cadastrar tema</h2>
+        <form id="form-tema" class="form">
+          <label>
+            Nome do tema
+            <input type="text" name="nome_tema" required maxlength="200" />
+          </label>
+          <label>
+            Descrição
+            <textarea name="descricao" rows="3" maxlength="2000"></textarea>
+          </label>
+          <button type="submit" class="btn btn-primary">Salvar Tema</button>
+        </form>
+        <p id="msg-tema" class="feedback" aria-live="polite"></p>
+      </section>
+
+      <section class="card">
+        <h2>Cadastrar site</h2>
+        <form id="form-site" class="form">
+          <label>
+            Nome do site
+            <input type="text" name="nome_site" required maxlength="200" />
+          </label>
+          <label>
+            URL
+            <input type="url" name="url" required placeholder="https://exemplo.com" />
+          </label>
+          <label>
+            Tema
+            <select name="id_tema" id="select-tema" required></select>
+          </label>
+          <button type="submit" class="btn btn-primary">Salvar Site</button>
+        </form>
+        <p id="msg-site" class="feedback" aria-live="polite"></p>
+      </section>
+    </div>
+
+    <section class="card section-block">
+      <div class="card-header">
+        <h2>Sites cadastrados</h2>
+        <span id="sites-loading" class="muted hidden">Carregando…</span>
+      </div>
+      <div class="table-wrap">
+        <table class="table" id="tabela-sites">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>URL</th>
+              <th>Tema</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/cadastro.js"></script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — DataSocial</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+</head>
+<body class="page-sub">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a href="index.html" class="brand">DataSocial</a>
+      <nav class="topbar-nav">
+        <a href="index.html">Início</a>
+        <a href="cadastro.html">Cadastro</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container section">
+    <div class="page-title-row">
+      <div>
+        <h1>Dashboard</h1>
+        <p class="muted">Visão consolidada das coletas (INNER JOIN temas × sites × coletas).</p>
+      </div>
+      <button type="button" class="btn btn-primary" id="btn-pdf">Gerar Relatório PDF</button>
+    </div>
+
+    <div id="dash-loading" class="muted">Carregando dados…</div>
+
+    <div id="dash-content" class="hidden">
+      <div class="cards-row" id="cards-resumo"></div>
+
+      <section class="card section-block">
+        <h2>Coletas</h2>
+        <div class="table-wrap">
+          <table class="table" id="tabela-coletas">
+            <thead>
+              <tr>
+                <th>Tema</th>
+                <th>Site</th>
+                <th>URL</th>
+                <th>Título</th>
+                <th>Links</th>
+                <th>Imagens</th>
+                <th>Data</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="card section-block">
+        <h2>Links por coleta (por site)</h2>
+        <p class="muted small">Gráfico de barras: quantidade de links detectados em cada registro de coleta.</p>
+        <div class="chart-wrap">
+          <canvas id="chart-links" height="120"></canvas>
+        </div>
+      </section>
+    </div>
+
+    <p id="dash-erro" class="feedback error hidden" role="alert"></p>
+  </main>
+
+  <script src="js/dashboard.js" defer></script>
+</body>
+</html>
